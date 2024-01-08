@@ -1,0 +1,22 @@
+{% extends 'temp/mainadmin.html' %}
+{% block base %}
+
+                <h1 class="mb-4">REGISTER COMPLAINT</h1>
+                        <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div class="row g-3">
+                                  <div class="col-7">
+                                    <textarea class="form-control border-0" rows="6" placeholder="Reply"  required="" name="rp"></textarea>
+                                </div>
+
+                                <div class="col-7">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Submit Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

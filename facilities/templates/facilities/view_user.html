@@ -1,0 +1,52 @@
+{% extends 'temp/mainuser.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h2 style="color: white" align="center">VIEW FACILITY</h2>
+<tr>
+    <form method="post">
+    {% csrf_token %}
+        <tr>
+    <td><input type="text" name="lop" placeholder="Enter Auditorium Name" style="width: 300px; height: 50px" ></td>
+{#        <td><input type="date" name="dt" placeholder="Enter Auditorium Name" style="width: 300px; height: 50px" ></td>#}
+    <td><input type="submit" value="Search" class="btn btn-success" style="width: 100px; height: 50px"></td>
+</tr>
+    </form>
+</tr>
+    <center>
+    <table border="1" class="table table-striped">
+        <tr style="color: white">
+            <th>Auditorium</th>
+            <th>Image</th>
+            <th>Location</th>
+            <th>Phone</th>
+            <th>Facility</th>
+            <th>Amount</th>
+{#            <th>Status</th>#}
+        </tr>
+        {% for i in x %}
+{#            {% for j in y %}#}
+        <tr style="color: white">
+            <td>{{ i.aud.name }}</td>
+            <td><a href="/static/{{ i.aud.image }}"><img src="/static/{{ i.aud.image }}" height="100" width="100"></a></td>
+            <td>{{ i.aud.location }}</td>
+            <td>{{ i.aud.phone }}</td>
+            <td>{{ i.facilities }}</td>
+            <td>{{ i.amount }}</td>
+{#            <td>{{ j.book_sts }}</td>#}
+            <td ><a href="/booking/post_book/{{ i.fac_id }}/{{ i.aud_id }}" class="btn btn-primary">Book Now</a> </td>
+
+        </tr>
+        {% endfor %}
+{#    {% endfor %}#}
+    </table>
+</center>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'temp/mainuser.html' %}
+{% block base %}
+                   <h1 class="mb-4">PAYMENT</h1>
+                        <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0"  required="" name="n" placeholder="Your Card holder name" style="height: 55px;">
+                                </div>
+                               <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0" minlength="4" maxlength="4"  required="" name="v" placeholder="Your CVV" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0"  value="{{ v.fac.amount }}" readonly="" placeholder="Your amount" style="height: 55px;">
+                                </div>
+
+                                <div class="col-7">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Pay Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

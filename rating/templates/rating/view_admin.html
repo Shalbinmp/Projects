@@ -1,0 +1,117 @@
+{% extends 'temp/mainadmin.html' %}
+{% block base %}
+     <style>
+    .star-rating {
+  border:solid 1px #ccc;
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.5em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width:5em;
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:#f90;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#fc0;
+}
+            input,select {
+
+          font-size: 16px;
+           border: none;
+                width: 100%;
+                border-radius: 8px;
+                border-bottom: 1px solid #0d8ebd;
+                padding: 15px 24px;
+}
+
+        fieldset
+{
+    border-left:1px solid deepskyblue;
+            {#border-bottom:1px solid deepskyblue;#}
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:8px;
+}
+
+input[type=submit],button{
+    font-size: 15px;
+    padding: 8px 20px;
+    border-radius: 8px;
+    color: #4ACCD1;
+    width: 5%;
+    alignment: center;
+  border-bottom: 1px;}
+
+
+input[type=reset]{font-size: 20px;
+    padding: 10px 24px;
+    border-radius: 8px;
+    color: #4ACCD1;
+    width: 100%;
+  border-bottom: 1px solid #0d8ebd;}
+
+legend{
+    color: #0d8ebd;
+    font-weight: bold;
+    float: left;
+}
+
+select{width: 100%;
+
+}
+        </style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h2 style="color: white">VIEW RATING</h2>
+    <table border="1" class="table table-striped">
+        <tr style="color: white">
+            <th>Auditorium</th>
+            <th>User</th>
+            <th>Date</th>
+            <th>Rating</th>
+        </tr>
+        {% for i in x %}
+        <tr style="color: white">
+            <td>{{ i.aud.name }}</td>
+            <td>{{ i.user.name }}</td>
+            <td>{{ i.date }}</td>
+            {% if i.rating == '1' %}
+         <td style="color: yellow">&#9733;</td>
+            {% elif i.rating == '2' %}
+            <td style="color: yellow">&#9733;&#9733;</td>
+            {% elif i.rating == '3' %}
+            <td style="color: yellow">&#9733;&#9733;&#9733;</td>
+            {% elif i.rating == '4' %}
+            <td style="color: yellow">&#9733;&#9733;&#9733;&#9733;</td>
+            {% else %}
+            <td style="color: yellow">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+        {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>
+{% endblock %}

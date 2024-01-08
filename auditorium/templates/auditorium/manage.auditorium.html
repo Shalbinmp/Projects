@@ -1,0 +1,39 @@
+{% extends 'temp/mainadmin.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h2 style="color: white">Manage Auditorium</h2>
+    <table border="1" class="table table-striped">
+        <tr style="color: white">
+            <th>Name</th>
+            <th>Location</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+        {% for i in x %}
+        <tr style="color: white">
+            <td>{{ i.name }}</td>
+            <td>{{ i.location }}</td>
+            <td>{{ i.phone }}</td>
+            <td>{{ i.email }}</td>
+            <td><a href="/static/{{ i.image }}"><img src="/static/{{ i.image }}" height="100" width="100"></a></td>
+            <td>{{ i.description }}</td>
+            <td>{{ i.status }}</td>
+            <td><a href="/auditorium/aprv/{{ i.aud_id }}" class="btn btn-outline-success">Approve</a> </td>
+            <td><a href="/auditorium/rejet/{{ i.aud_id }}" class="btn btn-outline-danger">Reject</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>
+{% endblock %}

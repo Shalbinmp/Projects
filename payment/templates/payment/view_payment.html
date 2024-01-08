@@ -1,0 +1,33 @@
+{% extends 'temp/mainauditorium.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h2 style="color: white">VIEW PAYMENT</h2>
+    <table border="1" class="table table-striped">
+        <tr style="color: white">
+            <th>Auditorium</th>
+            <th>User</th>
+            <th>CVV</th>
+            <th>Card holder</th>
+            <th>Status</th>
+        </tr>
+        {% for i in x %}
+        <tr style="color: white">
+            <td>{{ i.book.aud.name }}</td>
+            <td>{{ i.user.name }}</td>
+            <td>{{ i.cvv }}</td>
+            <td>{{ i.card_holder }}</td>
+            <td>{{ i.pay_sts }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'temp/mainauditorium.html' %}
+{% block base %}
+ <h1 class="mb-4">UPDATE FACILITIES</h1>
+                        <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div class="row g-3">
+
+                              <div class="col-12 col-sm-7">
+                                    <select class="form-select border-0" name="fc" style="height: 55px;"  required="">
+                                         <option selected>Select Facility</option>
+                                        <option value="Scrolling Screen">Scrolling Screen</option>
+                                        <option value="Speaker System">Speaker System</option>
+                                        <option value="Lighting System">Lighting System</option>
+                                        <option value="LCD Projector and LCD Screen">LCD Projector and LCD Screen</option>
+                                        <option value="Wooden and thermocol Paneling">Wooden and thermocol Paneling</option>
+                                        <option value="Wooden floor and walls">Wooden floor and walls</option>
+
+                                    </select>
+                                </div>
+                             <div class="col-12 col-sm-7">
+                                    <input type="text"  required="" class="form-control border-0" value="{{ x.amount }}"  placeholder="Your amount" name="am" style="height: 55px;">
+                                </div>
+                                <div class="col-7">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Update Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

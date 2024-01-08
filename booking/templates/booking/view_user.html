@@ -1,0 +1,47 @@
+{% extends 'temp/mainuser.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h2 style="color: white">Manage Booking</h2>
+<tr>
+    <form method="post">
+    {% csrf_token %}
+        <tr>
+    <td><input type="text" name="lop" placeholder="Enter Auditorium Name" style="width: 300px; height: 50px" ></td>
+{#        <td><input type="date" name="dt" placeholder="Enter Auditorium Name" style="width: 300px; height: 50px" ></td>#}
+    <td><input type="submit" value="Search" class="btn btn-success" style="width: 100px; height: 50px"></td>
+</tr>
+    </form>
+</tr>
+    <table border="1" class="table table-striped">
+        <tr style="color: white">
+            <th>Auditorium</th>
+{#            <th>User</th>#}
+            <th>Date</th>
+            <th>Time</th>
+            <th>Reminders</th>
+            <th>Status</th>
+        </tr>
+        {% for i in x %}
+        <tr style="color: white">
+            <td>{{ i.fac.aud.name }}</td>
+{#            <td>{{ i.user.name }}</td>#}
+            <td>{{ i.date }}</td>
+            <td>{{ i.time }}</td>
+            <td>{{ i.reminders }}</td>
+            <td>{{ i.status }}</td>
+{#            <td><a href="/booking/aprv_buk/{{ i.book_id }}">Approve</a> </td>#}
+{#            <td><a href="/booking/rejct_buk/{{ i.book_id }}">Reject</a> </td>#}
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>
+{% endblock %}

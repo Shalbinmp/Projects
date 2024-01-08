@@ -1,0 +1,38 @@
+{% extends 'temp/mainuser.html' %}
+{% block base %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h2 style="color: white">Booking Status</h2>
+    <table border="1" class="table table-striped">
+        <tr style="color: white">
+            <th>Auditorium</th>
+            <th>User</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Reminders</th>
+            <th>Status</th>
+            <th>Amount</th>
+        </tr>
+        {% for i in x %}
+        <tr style="color: white">
+            <td>{{ i.fac.aud.name }}</td>
+            <td>{{ i.user.name }}</td>
+            <td>{{ i.date }}</td>
+            <td>{{ i.time }}</td>
+            <td>{{ i.reminders }}</td>
+            <td>{{ i.status }}</td>
+            <td>{{ i.fac.amount }}</td>
+            <td><a href="/payment/addd_pay/{{ i.book_id }}">Pay</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+</body>
+</html>
+{% endblock %}

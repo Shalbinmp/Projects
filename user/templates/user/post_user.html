@@ -1,0 +1,40 @@
+{% extends 'temp/mainhome.html' %}
+{% block base %}
+<h1 class="mb-4">REGISTER USER</h1>
+                        <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0"  required="" placeholder="Your name" name="nm" style="height: 55px;">
+                                </div>
+                               <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0"  required="" placeholder="Your place" name="lo" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0"  required="" minlength="10" maxlength="10" pattern="[0-9]{10}" name="ph" placeholder="Your phone" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <input type="email" class="form-control border-0"  required="" placeholder="Your email" name="em" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0"  required="" placeholder="Your username" name="un" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <input type="password" class="form-control border-0"  required="" placeholder="Your password" name="ps" style="height: 55px;">
+                                </div>
+                                <div class="col-7">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Register Now</button>
+                                </div>
+                            </div>
+                        </form>
+    {% if x %}
+        <script>
+        alert('User exist')
+        </script>
+    {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

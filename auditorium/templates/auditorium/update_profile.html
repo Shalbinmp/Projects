@@ -1,0 +1,41 @@
+{% extends 'temp/mainauditorium.html' %}
+{% block base %}
+<h1 class="mb-4">UPDATE AUDITORIUM</h1>
+                        <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0" value="{{ x.name }}" placeholder="Your name" name="nm" required="" style="height: 55px;">
+                                </div>
+                               <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0" value="{{ x.location }}" placeholder="Your location" name="lo"  required="" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0" value="{{ x.phone }}" pattern="[0-9]{10}" name="ph" placeholder="Your phone"  required="" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <input type="file" class="form-control border-0" placeholder="Your image" required="" name="im" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <input type="email" class="form-control border-0" value="{{ x.email }}" placeholder="Your email"  required="" name="em" style="height: 55px;">
+                                </div>
+
+                                <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0" value="{{ x.description }}" placeholder="Your description"  required="" name="de" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0" value="{{ x.username }}" placeholder="Your username"  required="" name="un" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-7">
+                                    <input type="text" class="form-control border-0" value="{{ x.password }}" placeholder="Your password"  required="" name="ps" style="height: 55px;">
+                                </div>
+                                <div class="col-7">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Update Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>{% endblock %}

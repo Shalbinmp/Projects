@@ -1,0 +1,35 @@
+{% extends 'temp/mainuser.html' %}
+{% block base %}
+                    <h1 class="mb-4">BOOK AUDITORIUM</h1>
+                        <form method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-7">
+                                    <input type="date" class="form-control border-0" name="dt"  required="" placeholder="Date" style="height: 55px;">
+                                </div>
+                               <div class="col-12 col-sm-7">
+                                    <input type="time" class="form-control border-0" name="ti"  required="" placeholder="Time"  style="height: 55px;">
+                                </div>
+                                <div class="col-7">
+                                    <textarea class="form-control border-0" rows="6" placeholder="Reminders"  required="" name="rem"></textarea>
+                                </div>
+                                <div class="col-7">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+    {% if msg == "Succefully Booked"%}
+    <script>
+     alert("Successfuly Booked")
+    </script>
+     {% elif msg == "Date exist" %}
+     <script>
+     alert("Date with same time exist")
+     </script>
+{% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
